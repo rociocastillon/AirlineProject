@@ -80,6 +80,17 @@ public class ReservationGUI {
 		});
 		btnNewButton_2.setBounds(54, 122, 300, 29);
 		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnNewButton_3= new JButton("Review my Reservation");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) 
+			{
+				reviewReservation reviewWin = new reviewReservation();
+				reviewWin.newScreen();
+			}
+		});
+		btnNewButton_3.setBounds(54, 153, 300, 29);
+		frame.getContentPane().add(btnNewButton_3);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
