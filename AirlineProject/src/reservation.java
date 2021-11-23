@@ -1,4 +1,4 @@
-package myFirstGUI;
+
 
 public class reservation {
 	private int flightNumber;
