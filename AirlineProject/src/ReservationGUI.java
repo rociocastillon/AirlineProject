@@ -91,6 +91,15 @@ public class ReservationGUI {
 		});
 		btnNewButton_3.setBounds(54, 153, 300, 29);
 		frame.getContentPane().add(btnNewButton_3);
+		
+		JButton btnNewButton_4 = new JButton("Exit");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		btnNewButton_4.setBounds(54, 183, 300, 29);
+		frame.getContentPane().add(btnNewButton_4);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
