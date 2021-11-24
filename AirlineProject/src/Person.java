@@ -1,4 +1,3 @@
-package myFirstGUI;
 
 public class Person {
 	private String FName;
