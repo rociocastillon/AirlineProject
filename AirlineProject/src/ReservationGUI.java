@@ -52,8 +52,8 @@ public class ReservationGUI {
 		JButton btnNewButton = new JButton("Make a Reservation");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				makeReservationDetails pi = new makeReservationDetails();
-				pi.setVisible(true);
+				makeReservation pi = new makeReservation();
+				pi.newScreen();
 			}
 		});
 		btnNewButton.setBounds(54, 62, 300, 29);
@@ -66,8 +66,8 @@ public class ReservationGUI {
 		JButton btnNewButton_1 = new JButton("Cancel my Reservation");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cancelReservationDetails deets = new cancelReservationDetails();
-				deets.setVisible(true);
+				cancelReservation deets = new cancelReservation();
+				deets.newScreen();
 			}
 		});
 		btnNewButton_1.setBounds(54, 92, 300, 29);
