@@ -1,4 +1,4 @@
-// Test for github update
+// Test for github updated text file
 public class Person {
 	private String FName;
 	private String LName;
