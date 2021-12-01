@@ -49,57 +49,57 @@ public class ReservationGUI {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JButton btnNewButton = new JButton("Make a Reservation");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton MakeResButton = new JButton("Make a Reservation");
+		MakeResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				makeReservation pi = new makeReservation();
 				pi.newScreen();
 			}
 		});
-		btnNewButton.setBounds(54, 62, 300, 29);
-		frame.getContentPane().add(btnNewButton);
+		MakeResButton.setBounds(54, 62, 300, 29);
+		frame.getContentPane().add(MakeResButton);
 		
 		JLabel lblNewLabel = new JLabel("Welcome to Tech Airlines! What would you like to do?");
 		lblNewLabel.setBounds(25, 20, 400, 16);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton_1 = new JButton("Cancel my Reservation");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton CancelResButton = new JButton("Cancel my Reservation");
+		CancelResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cancelReservation deets = new cancelReservation();
 				deets.newScreen();
 			}
 		});
-		btnNewButton_1.setBounds(54, 92, 300, 29);
-		frame.getContentPane().add(btnNewButton_1);
+		CancelResButton.setBounds(54, 92, 300, 29);
+		frame.getContentPane().add(CancelResButton);
 		
-		JButton btnNewButton_2 = new JButton("Change my Reservation");
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton ChangeResButton = new JButton("Change my Reservation");
+		ChangeResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setBounds(54, 122, 300, 29);
-		frame.getContentPane().add(btnNewButton_2);
+		ChangeResButton.setBounds(54, 122, 300, 29);
+		frame.getContentPane().add(ChangeResButton);
 		
-		JButton btnNewButton_3= new JButton("Review my Reservation");
-		btnNewButton_3.addActionListener(new ActionListener() {
+		JButton ReviewResButton= new JButton("Review my Reservation");
+		ReviewResButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) 
 			{
 				reviewReservation reviewWin = new reviewReservation();
 				reviewWin.newScreen();
 			}
 		});
-		btnNewButton_3.setBounds(54, 153, 300, 29);
-		frame.getContentPane().add(btnNewButton_3);
+		ReviewResButton.setBounds(54, 153, 300, 29);
+		frame.getContentPane().add(ReviewResButton);
 		
-		JButton btnNewButton_4 = new JButton("Exit");
-		btnNewButton_4.addActionListener(new ActionListener() {
+		JButton ExitButton = new JButton("Exit");
+		ExitButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		btnNewButton_4.setBounds(54, 183, 300, 29);
-		frame.getContentPane().add(btnNewButton_4);
+		ExitButton.setBounds(54, 183, 300, 29);
+		frame.getContentPane().add(ExitButton);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {

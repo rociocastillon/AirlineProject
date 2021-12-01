@@ -1,6 +1,7 @@
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,18 +11,19 @@ import java.io.Writer;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class makeReservation {
+public class makeReservation implements ActionListener{
 	
 
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField FNTextField;
+	private JTextField LNTextField;
+	private JTextField PNTextField;
 	private JFrame frame_1;
-	private JTextField textField_3;
+	private JTextField EMTextField;
 	/**
 	 * Launch the application.
 	 */
@@ -41,15 +43,10 @@ public class makeReservation {
 	public makeReservation() {
 		initialize();
 	}
-	
-	
 
 
-	void writeToFile(String fileName, int text) throws Exception {
-		   FileOutputStream out = new FileOutputStream(fileName, true);
-		   out.write(text);
-		   out.close();
-		} 
+	FileWriter fileWriter;
+
 
 	private void initialize() {
 		frame = new JFrame();
@@ -62,19 +59,33 @@ public class makeReservation {
 		lblNewLabel.setBounds(100, 20, 300, 16);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("Next");
-		btnNewButton.setBounds(307, 221, 117, 29);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton nextButton = new JButton("Next");
+		nextButton.setBounds(307, 221, 117, 29);
+		nextButton.addActionListener(this);
+		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame_1 = new JFrame();
 				frame_1.setBounds(100, 100, 450, 300);
 				frame_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame_1.getContentPane().setLayout(null);
 				frame_1.setVisible(true);
+				if (e.getActionCommand() == nextButton.getActionCommand()) 
+				{
+					try
+					{
+						fileWriter = new FileWriter("passenger.txt", true);
+						fileWriter.write(FNTextField.getText() + " ");
+						fileWriter.write(LNTextField.getText() + " ");
+						fileWriter.write(PNTextField.getText() + " ");
+						fileWriter.write(EMTextField.getText() + " ");
+						fileWriter.close();
+						JOptionPane.showMessageDialog(null, "File Writing Successful");
+					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + ""); }
+				}
 				
 			}
 		});
-		frame.getContentPane().add(btnNewButton);
+		frame.getContentPane().add(nextButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Please enter the following information:");
 		lblNewLabel_1.setBounds(110, 38, 250, 16);
@@ -97,47 +108,47 @@ public class makeReservation {
 		frame.getContentPane().add(lblNewLabel_5);
 		
 		
-		textField = new JTextField();
-		textField.setBounds(143, 66, 130, 26);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
-		String FirstName = textField.getText();
-		try {
-			writeToFile("passenger.txt", FirstName);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-
+		FNTextField = new JTextField();
+		FNTextField.setBounds(143, 66, 130, 26);
+		frame.getContentPane().add(FNTextField);
+		FNTextField.setColumns(10);
 		
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(143, 93, 130, 26);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		LNTextField = new JTextField();
+		LNTextField.setBounds(143, 93, 130, 26);
+		frame.getContentPane().add(LNTextField);
+		LNTextField.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(143, 121, 130, 26);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		PNTextField = new JTextField();
+		PNTextField.setBounds(143, 121, 130, 26);
+		frame.getContentPane().add(PNTextField);
+		PNTextField.setColumns(10);
 		
-		JButton btnNewButton_1 = new JButton("Back");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		btnNewButton_1.setBounds(10, 221, 117, 29);
-		frame.getContentPane().add(btnNewButton_1);
+		backButton.setBounds(10, 221, 117, 29);
+		frame.getContentPane().add(backButton);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(143, 147, 130, 26);
-		frame.getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		EMTextField = new JTextField();
+		EMTextField.setBounds(143, 147, 130, 26);
+		frame.getContentPane().add(EMTextField);
+		EMTextField.setColumns(10);
+		
 		
 
 		
 
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		
+		// TODO Auto-generated method stub
+		
 	}
 
 }
