@@ -1,4 +1,4 @@
-//
+//tt
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import java.awt.Color;
@@ -14,6 +15,8 @@ import javax.swing.JEditorPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class reviewReservation {
@@ -73,6 +76,10 @@ public class reviewReservation {
 		frame.getContentPane().add(firstname);
 		firstname.setColumns(10);
 		
+
+		
+		
+		
 		JTextArea txtrYouHaveSelcted = new JTextArea(); //creates heading message
 		txtrYouHaveSelcted.setBackground(SystemColor.window);
 		txtrYouHaveSelcted.setText("You have selected to review your resvervation.\nPlease enter the following information:");
@@ -104,6 +111,7 @@ public class reviewReservation {
 		number.setBounds(189, 143, 130, 26);
 		frame.getContentPane().add(number);
 		number.setColumns(10);
+
 		
 		resNumber = new JTextField(); // creates input box for user to input reservation number
 		resNumber.setBounds(189, 171, 130, 26);
@@ -118,7 +126,7 @@ public class reviewReservation {
 				
 			if(firstname.getText().isEmpty() | lastname.getText().isEmpty() | resNumber.getText().isEmpty() | number.getText().isEmpty())
 			{
-				JLabel invalidLabel = new JLabel("Invalid Input!");
+			/*	JLabel invalidLabel = new JLabel("Invalid Input!");
 				invalidLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
 				invalidLabel.setBounds(157, 27, 127, 31);
 				frame3.getContentPane().add(invalidLabel);
@@ -139,7 +147,8 @@ public class reviewReservation {
 				closebutton.setBounds(310, 124, 117, 29); //creates close button to go back to previous frame
 				frame3.getContentPane().add(closebutton);
 				frame3.setVisible(true);
-				
+			*/
+				JOptionPane.showMessageDialog(null, "Invalid Input: Please Check your Information and try again.");
 			}
 				
 			else {

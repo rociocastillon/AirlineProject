@@ -95,7 +95,7 @@ public class ReservationGUI {
 		JButton btnNewButton_4 = new JButton("Exit");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				System.exit(0);
 			}
 		});
 		btnNewButton_4.setBounds(54, 183, 300, 29);
