@@ -45,29 +45,29 @@ public class DepartingFlight {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Thank you for that information. Next choose your departing city and time:");
-		lblNewLabel.setBounds(16, 6, 428, 16);
+		JLabel lblNewLabel = new JLabel("Customer info saved. Next choose your departing city and time:");
+		lblNewLabel.setBounds(12, 16, 432, 16);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("Los Angeles -> Las Vegas  8:30 AM Departure");
-		rdbtnNewRadioButton.setBounds(36, 58, 418, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton);
+		JRadioButton LAtoLV = new JRadioButton("Los Angeles -> Las Vegas        8:30 AM Departure");
+		LAtoLV.setBounds(36, 58, 418, 23);
+		frame.getContentPane().add(LAtoLV);
 		
-		JLabel lblNewLabel_1 = new JLabel("(Note: All flights and times are 7 days a week.");
-		lblNewLabel_1.setBounds(16, 24, 406, 16);
+		JLabel lblNewLabel_1 = new JLabel("(Note: All flights and times are 7 days a week.)");
+		lblNewLabel_1.setBounds(70, 30, 406, 20);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("Los Angeles ->  Phoenix 10:00 AM Departure");
-		rdbtnNewRadioButton_1.setBounds(36, 93, 371, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton_1);
+		JRadioButton LAtoP = new JRadioButton("Los Angeles ->  Phoenix         10:00 AM Departure");
+		LAtoP.setBounds(36, 93, 408, 23);
+		frame.getContentPane().add(LAtoP);
 		
-		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Los Angeles -> San Francisco  1:00 PM Departure");
-		rdbtnNewRadioButton_2.setBounds(36, 128, 386, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton_2);
+		JRadioButton LAtoSF = new JRadioButton("Los Angeles -> San Francisco  1:00 PM Departure");
+		LAtoSF.setBounds(36, 128, 408, 23);
+		frame.getContentPane().add(LAtoSF);
 		
-		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Los Angeles ->  San Diego   4:00 PM Departure ");
-		rdbtnNewRadioButton_3.setBounds(36, 163, 371, 23);
-		frame.getContentPane().add(rdbtnNewRadioButton_3);
+		JRadioButton LAtoSD = new JRadioButton("Los Angeles ->  San Diego       4:00 PM Departure ");
+		LAtoSD.setBounds(36, 163, 408, 23);
+		frame.getContentPane().add(LAtoSD);
 		
 		
 	}
