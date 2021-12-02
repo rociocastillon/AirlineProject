@@ -69,6 +69,8 @@ public class makeReservation implements ActionListener{
 				frame_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame_1.getContentPane().setLayout(null);
 				frame_1.setVisible(true);
+				
+				
 				if (e.getActionCommand() == nextButton.getActionCommand()) 
 				{
 					try
