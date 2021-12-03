@@ -2,6 +2,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.FileWriter;
@@ -11,11 +13,12 @@ import javax.swing.JRadioButton;
 public class DepartingFlight {
 
 	private JFrame frame;
-
+	private ButtonGroup buttonGroup;
+	FileWriter fw;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void newScreen() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -27,18 +30,15 @@ public class DepartingFlight {
 			}
 		});
 	}
-	FileWriter fw;
+
 	
-	/**
-	 * Create the application.
-	 */
+
 	public DepartingFlight() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
+	
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
@@ -69,6 +69,58 @@ public class DepartingFlight {
 		LAtoSD.setBounds(36, 163, 408, 23);
 		frame.getContentPane().add(LAtoSD);
 		
+		JButton NextButton = new JButton("Next");
+		NextButton.setBounds(327, 224, 117, 29);
+		frame.getContentPane().add(NextButton);
+		//NextButton.addActionListener(this);
+		NextButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				DepartingFlight df = new DepartingFlight();
+				df.newScreen();
+				//frame_1 = new JFrame();
+				//frame_1.setBounds(100, 100, 450, 300);
+				//frame_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				//frame_1.getContentPane().setLayout(null);
+				//frame_1.setVisible(true);
+				
+				
+				if (e.getActionCommand() == NextButton.getActionCommand()) 
+				{
+					try
+					{
+						fw = new FileWriter("passenger.txt", true);
+						buttonGroup.getSelection();
+						fw.write(NextButton.getText());
+						fw.close();
+						JOptionPane.showMessageDialog(null, "File Writing Successful");
+				} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + ""); }
+			}
+			
+			}
+	});
+
+			
+
+		
+		
+		
+		
+		
+		
+		
+		JButton BackButton = new JButton("Back");
+		BackButton.setBounds(36, 224, 117, 29);
+		frame.getContentPane().add(BackButton);
+		
+		buttonGroup = new ButtonGroup();
+		buttonGroup.add(LAtoLV);
+		buttonGroup.add(LAtoP);
+		buttonGroup.add(LAtoSF);
+		buttonGroup.add(LAtoSD);
+		
+		
 		
 	}
 }
+
+
