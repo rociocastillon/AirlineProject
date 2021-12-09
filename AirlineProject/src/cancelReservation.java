@@ -11,9 +11,9 @@ import javax.swing.JTextField;
 public class cancelReservation {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
+	private JTextField NameTextField;
+	private JTextField PNTextField;
+	private JTextField FNTextField;
 	/**
 	 * Launch the application.
 	 */
@@ -44,6 +44,7 @@ public class cancelReservation {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("You have selected to cancel your reservation.");
 		lblNewLabel.setBounds(80, 53, 300, 16);
@@ -53,45 +54,51 @@ public class cancelReservation {
 		lblNewLabel_1.setBounds(100, 70, 300, 16);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Name:");
-		lblNewLabel_2.setBounds(90, 100, 50, 16);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel NameLabel = new JLabel("Name:");
+		NameLabel.setBounds(90, 100, 50, 16);
+		frame.getContentPane().add(NameLabel);
 		
-		JLabel lblNewLabel_3 = new JLabel("Phone Number:");
-		lblNewLabel_3.setBounds(35, 125, 100, 16);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel PNLabel = new JLabel("Phone Number:");
+		PNLabel.setBounds(35, 125, 100, 16);
+		frame.getContentPane().add(PNLabel);
 		
-		JLabel lblNewLabel_4 = new JLabel("Flight Number:");
-		lblNewLabel_4.setBounds(35, 150, 100, 16);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel FNLabel = new JLabel("Flight Number:");
+		FNLabel.setBounds(35, 150, 100, 16);
+		frame.getContentPane().add(FNLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(158, 95, 130, 26);
-		frame.getContentPane().add(textField);
-		textField.setColumns(10);
+		NameTextField = new JTextField();
+		NameTextField.setBounds(158, 95, 130, 26);
+		frame.getContentPane().add(NameTextField);
+		NameTextField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(158, 120, 130, 26);
-		frame.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		PNTextField = new JTextField();
+		PNTextField.setBounds(158, 120, 130, 26);
+		frame.getContentPane().add(PNTextField);
+		PNTextField.setColumns(10);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(158, 145, 130, 26);
-		frame.getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		FNTextField = new JTextField();
+		FNTextField.setBounds(158, 145, 130, 26);
+		frame.getContentPane().add(FNTextField);
+		FNTextField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Back");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton backButton = new JButton("Back");
+		backButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
 			}
 		});
-		btnNewButton.setBounds(6, 223, 117, 29);
-		frame.getContentPane().add(btnNewButton);
+		backButton.setBounds(6, 223, 117, 29);
+		frame.getContentPane().add(backButton);
 		
-		JButton btnNewButton_1 = new JButton("Next");
-		btnNewButton_1.setBounds(327, 223, 117, 29);
-		frame.getContentPane().add(btnNewButton_1);
+		JButton backButton_1 = new JButton("Next");
+		backButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		backButton_1.setBounds(306, 223, 117, 29);
+		frame.getContentPane().add(backButton_1);
+		
+		
 	}
 	
 }

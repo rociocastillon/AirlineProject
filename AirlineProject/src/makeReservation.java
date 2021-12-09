@@ -22,7 +22,7 @@ public class makeReservation implements ActionListener{
 	private JTextField FNTextField;
 	private JTextField LNTextField;
 	private JTextField PNTextField;
-	private JFrame frame_1;
+	//private JFrame frame_1;
 	private JTextField EMTextField;
 	/**
 	 * Launch the application.
@@ -64,11 +64,15 @@ public class makeReservation implements ActionListener{
 		nextButton.addActionListener(this);
 		nextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame_1 = new JFrame();
-				frame_1.setBounds(100, 100, 450, 300);
-				frame_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame_1.getContentPane().setLayout(null);
-				frame_1.setVisible(true);
+				DepartingFlight df = new DepartingFlight();
+				df.newScreen();
+				//frame_1 = new JFrame();
+				//frame_1.setBounds(100, 100, 450, 300);
+				//frame_1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				//frame_1.getContentPane().setLayout(null);
+				//frame_1.setVisible(true);
+				
+				
 				if (e.getActionCommand() == nextButton.getActionCommand()) 
 				{
 					try
@@ -80,11 +84,11 @@ public class makeReservation implements ActionListener{
 						fileWriter.write(EMTextField.getText() + " ");
 						fileWriter.close();
 						JOptionPane.showMessageDialog(null, "File Writing Successful");
-					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + ""); }
-				}
-				
+				} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + ""); }
 			}
-		});
+			
+			}
+	});
 		frame.getContentPane().add(nextButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("Please enter the following information:");

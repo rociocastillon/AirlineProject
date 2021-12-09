@@ -92,14 +92,14 @@ public class ReservationGUI {
 		ReviewResButton.setBounds(54, 153, 300, 29);
 		frame.getContentPane().add(ReviewResButton);
 		
-		JButton ExitButton = new JButton("Exit");
-		ExitButton.addActionListener(new ActionListener() {
+		JButton btnNewButton_4 = new JButton("Exit");
+		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}
 		});
-		ExitButton.setBounds(54, 183, 300, 29);
-		frame.getContentPane().add(ExitButton);
+		btnNewButton_4.setBounds(54, 183, 300, 29);
+		frame.getContentPane().add(btnNewButton_4);
 	}
 	private class SwingAction extends AbstractAction {
 		public SwingAction() {
