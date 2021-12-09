@@ -78,13 +78,13 @@ public class makeReservation implements ActionListener{
 					try
 					{
 						fileWriter = new FileWriter("passenger.txt", true);
-						fileWriter.write(FNTextField.getText() + " ");
-						fileWriter.write(LNTextField.getText() + " ");
-						fileWriter.write(PNTextField.getText() + " ");
-						fileWriter.write(EMTextField.getText() + " ");
+						fileWriter.write("First Name: " + FNTextField.getText() + " ");
+						fileWriter.write("Last Name: " + LNTextField.getText() + " ");
+						fileWriter.write("Phone Number: " + PNTextField.getText() + " ");
+						fileWriter.write("Email: " + EMTextField.getText() + " ");
 						fileWriter.close();
 						JOptionPane.showMessageDialog(null, "File Writing Successful");
-				} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + ""); }
+				} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save Customer details."); }
 			}
 			
 			}

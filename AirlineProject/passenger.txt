@@ -1,4 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     
+>>>>>>> branch 'master' of https://github.com/rocioxox/AirlineProject.git
+=======
+    sp sp 818 sjp Customer info saved. Next choose your departing city and time:
 >>>>>>> branch 'master' of https://github.com/rocioxox/AirlineProject.git
