@@ -1,4 +1,3 @@
-//tt
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -143,7 +142,6 @@ public class reviewReservation {
 					
 					}
 				});
-
 				closebutton.setBounds(310, 124, 117, 29); //creates close button to go back to previous frame
 				frame3.getContentPane().add(closebutton);
 				frame3.setVisible(true);
