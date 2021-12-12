@@ -14,8 +14,12 @@ import javax.swing.JEditorPane;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class reviewReservation {
@@ -28,6 +32,14 @@ public class reviewReservation {
 	private JTextField number;
 	private JTextField resNumber;
 	private JButton btnNewButton;
+	
+	private String fname;
+	private String lname;
+	private String phonenum;
+	private String passemail;
+	private String arrCity;
+	private String depCity;
+	private String depTime;
 
 	/**
 	 * Launch the application.
@@ -152,6 +164,7 @@ public class reviewReservation {
 			else 
 			{
 				//creates display of reservation information
+				getInfo(firstname,lastname,number, resNumber);
 				showInformation(frame2);
 				mainFrame.dispose();
 			}
@@ -161,7 +174,7 @@ public class reviewReservation {
 	}
 	public void showInformation(JFrame frame)
 	{
-		JLabel fullname = new JLabel("Name: \t"+ firstname.getText() + " " + lastname.getText());
+		JLabel fullname = new JLabel("Name: \t"+ fname+ " "+lname);
 		fullname.setBounds(105, 40, 300, 16);
 		frame.getContentPane().add(fullname);
 		
@@ -169,11 +182,11 @@ public class reviewReservation {
 		resnum.setBounds(18, 20, 388, 16);
 		frame.getContentPane().add(resnum);
 		
-		JLabel numLabel = new JLabel("Phone Number: \t"+ number.getText());
+		JLabel numLabel = new JLabel("Phone Number: \t"+ phonenum);
 		numLabel.setBounds(53, 60, 353, 16);
 		frame.getContentPane().add(numLabel);
 		
-		JLabel fromCityLabel = new JLabel("From: \t");
+		JLabel fromCityLabel = new JLabel("From: \t" + depCity);
 		fromCityLabel.setBounds(77, 136, 156, 16);
 		frame.getContentPane().add(fromCityLabel);
 		
@@ -181,11 +194,11 @@ public class reviewReservation {
 		departureDateLabel.setBounds(18, 156, 215, 16);
 		frame.getContentPane().add(departureDateLabel);
 		
-		JLabel departureTimeLabel = new JLabel("Departure Time: \t");
+		JLabel departureTimeLabel = new JLabel("Departure Time: \t" + depTime);
 		departureTimeLabel.setBounds(18, 176, 215, 16);
 		frame.getContentPane().add(departureTimeLabel);
 		
-		JLabel toCityLabel = new JLabel("To: \t");
+		JLabel toCityLabel = new JLabel("To: \t" + arrCity);
 		toCityLabel.setBounds(315, 136, 114, 16);
 		frame.getContentPane().add(toCityLabel);
 		
@@ -215,6 +228,51 @@ public class reviewReservation {
 		
 		frame.setVisible(true);
 	
+	}
+	public void getInfo(JTextField firstname2, JTextField lastname2, JTextField number2, JTextField resNumber2)
+	{
+		ArrayList<String> data = new ArrayList<String>();
+		String []splitted;
+
+		try 
+		{
+			BufferedReader br = new BufferedReader(new FileReader("passenger.txt"));
+			String S ="";
+			String match = "";
+			int i=0;
+			while((S = br.readLine()) != null)
+			{
+				data.add(S);
+			}
+			
+			while(!match.equals(resNumber2.getText()))
+			{
+				S= data.get(i);
+				splitted = S.split("  ");
+				if((splitted[0]).equals(resNumber2.getText()))
+				{
+					int j=0;
+					match = splitted[j];
+					fname = splitted[j+1];
+					lname= splitted[j+2];
+					phonenum = splitted[j+3];
+					passemail = splitted[j+4];
+					depCity = splitted[j+5];
+					arrCity = splitted[j+6];
+					depTime = splitted[j+7];
+
+				}
+				
+				i++;
+			}
+			
+			br.close();
+		} 
+		catch (Exception e) 
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
