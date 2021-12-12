@@ -78,6 +78,7 @@ public class makeReservation implements ActionListener{
 					try
 					{
 						fileWriter = new FileWriter("passenger.txt", true);
+						fileWriter.write("\n");
 						fileWriter.write("First Name: " + FNTextField.getText() + " ");
 						fileWriter.write("Last Name: " + LNTextField.getText() + " ");
 						fileWriter.write("Phone Number: " + PNTextField.getText() + " ");
