@@ -39,6 +39,7 @@ public class reviewReservation {
 	private String arrCity;
 	private String depCity;
 	private String depTime;
+	private String reservationNum;
 
 	/**
 	 * Launch the application.
@@ -126,21 +127,24 @@ public class reviewReservation {
 	}
 	private void showInformation(JFrame frame)
 	{
-		JLabel fullname = new JLabel("Name: \t");
-		fullname.setForeground(new Color(0, 0, 0));
+		JLabel fullname = new JLabel("Name: \t" + fname +" " + lname);
 		fullname.setBounds(105, 40, 300, 16);
 		frame.getContentPane().add(fullname);
 		
-		JLabel resnum = new JLabel("Reservation Number: \t" );
+		JLabel resnum = new JLabel("Reservation Number: \t" + reservationNum);
 		resnum.setBounds(18, 20, 388, 16);
 		frame.getContentPane().add(resnum);
 		
-		JLabel numLabel = new JLabel("Phone Number: \t");
+		JLabel numLabel = new JLabel("Phone Number: \t" + phonenum);
 		numLabel.setBackground(UIManager.getColor("window"));
 		numLabel.setBounds(53, 60, 353, 16);
 		frame.getContentPane().add(numLabel);
 		
-		JLabel fromCityLabel = new JLabel("From: \t");
+		JLabel emailLabel = new JLabel("Email:");
+		emailLabel.setBounds(111, 80, 370, 16);
+		frame.getContentPane().add(emailLabel);
+		
+		JLabel fromCityLabel = new JLabel("From: \t" + depCity);
 		fromCityLabel.setBounds(56, 148, 156, 16);
 		frame.getContentPane().add(fromCityLabel);
 		
@@ -148,11 +152,11 @@ public class reviewReservation {
 		departureDateLabel.setBounds(254, 148, 107, 16);
 		frame.getContentPane().add(departureDateLabel);
 		
-		JLabel departureTimeLabel = new JLabel("Time: \t" );
+		JLabel departureTimeLabel = new JLabel("Time: \t" + depTime);
 		departureTimeLabel.setBounds(254, 176, 107, 16);
 		frame.getContentPane().add(departureTimeLabel);
 		
-		JLabel toCityLabel = new JLabel("To: \t" );
+		JLabel toCityLabel = new JLabel("To: \t" + arrCity);
 		toCityLabel.setBounds(66, 176, 114, 16);
 		frame.getContentPane().add(toCityLabel);
 		
@@ -215,6 +219,7 @@ public class reviewReservation {
 				{
 					int j=0;
 					match = splitted[j];
+					reservationNum = splitted[j];
 					fname = splitted[j+1];
 					lname= splitted[j+2];
 					phonenum = splitted[j+3];
