@@ -165,7 +165,7 @@ public class reviewReservation {
 			{
 				//creates display of reservation information
 				getInfo(firstname,lastname,number, resNumber);
-				showInformation(frame2);
+				//showInformation(frame2);
 				mainFrame.dispose();
 			}
 		}});
@@ -233,6 +233,7 @@ public class reviewReservation {
 	{
 		ArrayList<String> data = new ArrayList<String>();
 		String []splitted;
+		boolean successful = false;
 
 		try 
 		{
@@ -245,7 +246,7 @@ public class reviewReservation {
 				data.add(S);
 			}
 			
-			while(!match.equals(resNumber2.getText()))
+			while(!match.equals(resNumber2.getText()) & i < data.size())
 			{
 				S= data.get(i);
 				splitted = S.split("  ");
@@ -260,13 +261,23 @@ public class reviewReservation {
 					depCity = splitted[j+5];
 					arrCity = splitted[j+6];
 					depTime = splitted[j+7];
+					successful = true;
 
 				}
+				
 				
 				i++;
 			}
 			
 			br.close();
+			if(successful == false) {
+				
+				JOptionPane.showMessageDialog(null, "Error: No reservations match.");
+			}
+			else {
+				showInformation(frame2);
+			}
+			
 		} 
 		catch (Exception e) 
 		{

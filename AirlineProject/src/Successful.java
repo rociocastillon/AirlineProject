@@ -2,6 +2,9 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Successful {
 
@@ -42,6 +45,15 @@ public class Successful {
 		JLabel lblNewLabel = new JLabel("Congratulations! You have made your reservation on:");
 		lblNewLabel.setBounds(6, 23, 438, 16);
 		frame.getContentPane().add(lblNewLabel);
+		
+		JButton mainMenuButton = new JButton("Back to Main Menu");
+		mainMenuButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
+		mainMenuButton.setBounds(221, 216, 202, 29);
+		frame.getContentPane().add(mainMenuButton);
 		
 		
 	}

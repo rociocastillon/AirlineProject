@@ -58,7 +58,7 @@ public class DepartingFlight {
 		frame.getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("(Note: All flights and times are 7 days a week.)");
-		lblNewLabel_1.setBounds(70, 30, 406, 20);
+		lblNewLabel_1.setBounds(70, 30, 320, 20);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		
@@ -69,6 +69,7 @@ public class DepartingFlight {
 			public void actionPerformed(ActionEvent e) {
 				Successful success = new Successful();
 				success.newScreen();
+				frame.dispose();
 				
 			
 			}
@@ -86,7 +87,8 @@ public class DepartingFlight {
 				if (e.getActionCommand() == LAtoLV_1.getActionCommand()) {
 					try {
 						LAtoLV = new FileWriter("passenger.txt", true);
-						LAtoLV.write(LAtoLV_1.getText());
+						LAtoLV.write("Los Angeles  Las Vegas  8:00 AM  ");
+						LAtoLV.write("\n");
 						LAtoLV.close();
 					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save Customer details."); }
 				}
@@ -101,7 +103,8 @@ public class DepartingFlight {
 				if (e.getActionCommand() == LAtoP_1.getActionCommand()) {
 					try {
 						LAtoP = new FileWriter("passenger.txt", true);
-						LAtoP.write(LAtoLV_1.getText());
+						LAtoP.write("Los Angeles  Phoenix  10:00 AM  ");
+						LAtoP.write("\n");
 						LAtoP.close();
 					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save flight details."); }
 				}
@@ -114,10 +117,11 @@ public class DepartingFlight {
 		JButton LAtoSF_1 = new JButton("Los Angeles -> San Francisco  1:00 PM Departure");
 		LAtoSF_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand() == LAtoLV_1.getActionCommand()) {
+				if (e.getActionCommand() == LAtoSF_1.getActionCommand()) {
 					try {
 						LAtoSF = new FileWriter("passenger.txt", true);
-						LAtoSF.write(LAtoLV_1.getText());
+						LAtoSF.write("Los Angeles  San Francisco  1:00 PM  ");
+						LAtoSF.write("\n");
 						LAtoSF.close();
 					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save flight details."); }
 				}
@@ -130,10 +134,11 @@ public class DepartingFlight {
 		JButton LAtoSD_1 = new JButton("Los Angeles ->  San Diego       4:00 PM Departure");
 		LAtoSD_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (e.getActionCommand() == LAtoLV_1.getActionCommand()) {
+				if (e.getActionCommand() == LAtoSD_1.getActionCommand()) {
 					try {
 						LAtoSD = new FileWriter("passenger.txt", true);
-						LAtoSD.write(LAtoLV_1.getText());
+						LAtoSD.write("Los Angeles  San Diego  4:00 PM  ");
+						LAtoSD.write("\n");
 						LAtoSD.close();
 					} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save flight details."); }
 				}
