@@ -3,6 +3,7 @@ import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,10 +27,8 @@ public class reviewReservation {
 
 
 	private JFrame mainFrame;
-	private JFrame frame2, frame3;
+	private JFrame frame2;
 	private JTextField firstname;
-	private JTextField lastname;
-	private JTextField number;
 	private JTextField resNumber;
 	private JButton btnNewButton;
 	
@@ -78,18 +77,10 @@ public class reviewReservation {
 		frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame2.getContentPane().setLayout(null);
 		
-		frame3 = new JFrame(); // creating frame for showing error message
-		frame3.setBounds(100, 100, 450, 200);
-		frame3.getContentPane().setLayout(null);
-		
 		firstname = new JTextField(); //creates text box for user to input first name
 		firstname.setBounds(189, 87, 130, 26);
 		mainFrame.getContentPane().add(firstname);
-		firstname.setColumns(10);
-		
-
-		
-		
+		firstname.setColumns(10);	
 		
 		JTextArea txtrYouHaveSelcted = new JTextArea(); //creates heading message
 		txtrYouHaveSelcted.setBackground(SystemColor.window);
@@ -101,31 +92,13 @@ public class reviewReservation {
 		lblNewLabel.setBounds(94, 92, 83, 16);
 		mainFrame.getContentPane().add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Last Name : "); // creates last name label
-		lblNewLabel_1.setBounds(94, 120, 83, 16);
-		mainFrame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("Phone Number : "); // creates phone number label
-		lblNewLabel_2.setBounds(68, 148, 110, 16);
-		mainFrame.getContentPane().add(lblNewLabel_2);
-		
 		JLabel lblNewLabel_3 = new JLabel("Reservation Number :"); //creates reservation number label
-		lblNewLabel_3.setBounds(35, 176, 143, 16);
+		lblNewLabel_3.setBounds(34, 136, 143, 16);
 		mainFrame.getContentPane().add(lblNewLabel_3);
-		
-		lastname = new JTextField(); // creates input box for user to input lastname
-		lastname.setBounds(189, 115, 130, 26);
-		mainFrame.getContentPane().add(lastname);
-		lastname.setColumns(10);
-		
-		number = new JTextField(); // creates input box for user to input phone number
-		number.setBounds(189, 143, 130, 26);
-		mainFrame.getContentPane().add(number);
-		number.setColumns(10);
 
 		
 		resNumber = new JTextField(); // creates input box for user to input reservation number
-		resNumber.setBounds(189, 171, 130, 26);
+		resNumber.setBounds(189, 131, 130, 26);
 		mainFrame.getContentPane().add(resNumber);
 		resNumber.setColumns(10);
 		
@@ -135,36 +108,15 @@ public class reviewReservation {
 			{
 				//checks if user did not input the required details
 				
-			if(firstname.getText().isEmpty() | lastname.getText().isEmpty() | resNumber.getText().isEmpty() | number.getText().isEmpty())
+			if(firstname.getText().isEmpty() | resNumber.getText().isEmpty())
 			{
-			/*	JLabel invalidLabel = new JLabel("Invalid Input!");
-				invalidLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 19));
-				invalidLabel.setBounds(157, 27, 127, 31);
-				frame3.getContentPane().add(invalidLabel);
-				
-				JLabel errorMsg = new JLabel("Please check your information and try again!"); // creates error message 
-				errorMsg.setBounds(83, 82, 280, 16);
-				frame3.getContentPane().add(errorMsg);
-				
-				JButton closebutton = new JButton("Close");
-				closebutton.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) 
-					{
-						frame3.dispose();
-					
-					}
-				});
-				closebutton.setBounds(310, 124, 117, 29); //creates close button to go back to previous frame
-				frame3.getContentPane().add(closebutton);
-				frame3.setVisible(true);
-			*/
+
 				JOptionPane.showMessageDialog(null, "Invalid Input: Please Check your Information and try again.");
 			}
-				
 			else 
 			{
 				//creates display of reservation information
-				getInfo(firstname,lastname,number, resNumber);
+				getInfo(firstname,resNumber);
 				//showInformation(frame2);
 				mainFrame.dispose();
 			}
@@ -172,46 +124,41 @@ public class reviewReservation {
 		btnNewButton.setBounds(297, 222, 117, 29);
 		mainFrame.getContentPane().add(btnNewButton);
 	}
-	public void showInformation(JFrame frame)
+	private void showInformation(JFrame frame)
 	{
-		JLabel fullname = new JLabel("Name: \t"+ fname+ " "+lname);
+		JLabel fullname = new JLabel("Name: \t");
+		fullname.setForeground(new Color(0, 0, 0));
 		fullname.setBounds(105, 40, 300, 16);
 		frame.getContentPane().add(fullname);
 		
-		JLabel resnum = new JLabel("Reservation Number: \t" + resNumber.getText());
+		JLabel resnum = new JLabel("Reservation Number: \t" );
 		resnum.setBounds(18, 20, 388, 16);
 		frame.getContentPane().add(resnum);
 		
-		JLabel numLabel = new JLabel("Phone Number: \t"+ phonenum);
+		JLabel numLabel = new JLabel("Phone Number: \t");
+		numLabel.setBackground(UIManager.getColor("window"));
 		numLabel.setBounds(53, 60, 353, 16);
 		frame.getContentPane().add(numLabel);
 		
-		JLabel fromCityLabel = new JLabel("From: \t" + depCity);
-		fromCityLabel.setBounds(77, 136, 156, 16);
+		JLabel fromCityLabel = new JLabel("From: \t");
+		fromCityLabel.setBounds(56, 148, 156, 16);
 		frame.getContentPane().add(fromCityLabel);
 		
-		JLabel departureDateLabel = new JLabel("Departure Date: \t");
-		departureDateLabel.setBounds(18, 156, 215, 16);
+		JLabel departureDateLabel = new JLabel("Date: \t");
+		departureDateLabel.setBounds(254, 148, 107, 16);
 		frame.getContentPane().add(departureDateLabel);
 		
-		JLabel departureTimeLabel = new JLabel("Departure Time: \t" + depTime);
-		departureTimeLabel.setBounds(18, 176, 215, 16);
+		JLabel departureTimeLabel = new JLabel("Time: \t" );
+		departureTimeLabel.setBounds(254, 176, 107, 16);
 		frame.getContentPane().add(departureTimeLabel);
 		
-		JLabel toCityLabel = new JLabel("To: \t" + arrCity);
-		toCityLabel.setBounds(315, 136, 114, 16);
+		JLabel toCityLabel = new JLabel("To: \t" );
+		toCityLabel.setBounds(66, 176, 114, 16);
 		frame.getContentPane().add(toCityLabel);
 		
-		JLabel arrivalDateLabel = new JLabel("Arrival Date: \t");
-		arrivalDateLabel.setBounds(258, 156, 171, 16);
-		frame.getContentPane().add(arrivalDateLabel);
-		
-		JLabel arrivalTimeLabel = new JLabel("Arrival Time: \t");
-		arrivalTimeLabel.setBounds(258, 176, 171, 16);
-		frame.getContentPane().add(arrivalTimeLabel);
-		
-		JLabel flightLabel = new JLabel("Flight Number: \t");
-		flightLabel.setBounds(18, 100, 353, 16);
+		JLabel flightLabel = new JLabel("Flight Information");
+		flightLabel.setFont(new Font("Papyrus", Font.BOLD, 13));
+		flightLabel.setBounds(104, 120, 185, 16);
 		frame.getContentPane().add(flightLabel);
 		
 		JButton closebutton = new JButton("Close");
@@ -222,6 +169,7 @@ public class reviewReservation {
 			
 			}
 		});
+
 
 		closebutton.setBounds(310, 230, 117, 29);
 		frame.getContentPane().add(closebutton);
@@ -242,7 +190,7 @@ public class reviewReservation {
 		frame.setVisible(true);
 	
 	}
-	public void getInfo(JTextField firstname2, JTextField lastname2, JTextField number2, JTextField resNumber2)
+	private void getInfo(JTextField firstname2, JTextField resNumber2)
 	{
 		ArrayList<String> data = new ArrayList<String>();
 		String []splitted;

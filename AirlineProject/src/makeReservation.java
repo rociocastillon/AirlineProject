@@ -6,7 +6,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Random;
+
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -77,18 +77,16 @@ public class makeReservation implements ActionListener{
 				{
 					try
 					{
-						Random random = new Random();
 						fileWriter = new FileWriter("passenger.txt", true);
-						fileWriter.write(random.nextInt(1000)  + "  ");
-						fileWriter.write(FNTextField.getText() + "  ");
-						fileWriter.write(LNTextField.getText() + "  ");
-						fileWriter.write(PNTextField.getText() + "  ");
-						fileWriter.write(EMTextField.getText() + "  ");
+						fileWriter.write("First Name: " + FNTextField.getText() + " ");
+						fileWriter.write("Last Name: " + LNTextField.getText() + " ");
+						fileWriter.write("Phone Number: " + PNTextField.getText() + " ");
+						fileWriter.write("Email: " + EMTextField.getText() + " ");
 						fileWriter.close();
-						JOptionPane.showMessageDialog(null, "Customer information successfully saved.");
+						JOptionPane.showMessageDialog(null, "File Writing Successful");
 				} catch(Exception ae) {JOptionPane.showMessageDialog(null, e + "Error: cannot save Customer details."); }
 			}
-				frame.dispose();
+			
 			}
 	});
 		frame.getContentPane().add(nextButton);
