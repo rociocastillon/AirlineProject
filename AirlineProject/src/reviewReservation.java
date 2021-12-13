@@ -226,6 +226,19 @@ public class reviewReservation {
 		closebutton.setBounds(310, 230, 117, 29);
 		frame.getContentPane().add(closebutton);
 		
+		JButton conEmail = new JButton("Send confirmation email");
+		conEmail.setBounds(40, 230, 200, 29);
+		frame.getContentPane().add(conEmail);
+		conEmail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e)
+			{
+				confirmationEmail con = new confirmationEmail();
+				con.newScreen();
+			}
+		});
+
+		
+		
 		frame.setVisible(true);
 	
 	}
