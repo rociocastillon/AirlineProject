@@ -140,7 +140,7 @@ public class reviewReservation {
 		numLabel.setBounds(53, 60, 353, 16);
 		frame.getContentPane().add(numLabel);
 		
-		JLabel emailLabel = new JLabel("Email:");
+		JLabel emailLabel = new JLabel("Email:" + passemail);
 		emailLabel.setBounds(111, 80, 370, 16);
 		frame.getContentPane().add(emailLabel);
 		
